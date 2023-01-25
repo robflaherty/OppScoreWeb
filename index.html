@@ -234,7 +234,7 @@
                                 <th>satisfaction</th>
                             </tr>
                         </table>
-    
+
                         <textarea id="input-data" placeholder="Paste tab or comma-separated data here"></textarea>
                     </div>
                     <div class="input-buttons">
@@ -295,7 +295,7 @@
                     var margin = {top: 10, right: 10, bottom: 50, left: 50},
                         width = 520 - margin.left - margin.right,
                         height = 470 - margin.top - margin.bottom;
-                    
+
                     // append the svg object to the body of the page
                     var SVG = d3.select("#map-area")
                         .append("svg")
@@ -311,7 +311,7 @@
                         .attr("fill", "white")
                         .attr("transform",
                                 "translate(-" + margin.left + ",-" + margin.top + ")");
-                    
+
                     // X scale and Axis
                     var x = d3.scaleLinear()
                         .domain([0, 10])         // This is the min and the max of the data: 0 to 100 if percentages
@@ -320,7 +320,7 @@
                         .append('g')
                         .attr("transform", "translate(0," + height + ")")
                         .call(d3.axisBottom(x));
-                    
+
                     // X scale and Axis
                     var y = d3.scaleLinear()
                         .domain([0, 10])         // This is the min and the max of the data: 0 to 100 if percentages
@@ -335,7 +335,7 @@
                         .attr("x2", x(10))
                         .attr("y2", y(10))
                         .style("stroke", "black");
-                    
+
                     SVG.append("line")
                         .attr("x1", x(0))
                         .attr("y1", y(10))
@@ -349,7 +349,7 @@
                         .attr("x2", x(10))
                         .attr("y2", y(10))
                         .style("stroke", "lightgrey");
-                    
+
                     SVG.append("line")
                         .attr("x1", x(5))
                         .attr("y1", y(0))
@@ -372,8 +372,8 @@
                         .attr("y2", y(5))
                         .style("stroke-dasharray", ("3, 3"))
                         .style("stroke", "lightgrey");
-                    
-                    SVG.append("text")     
+
+                    SVG.append("text")
                         .attr("x", function (d) { return x(3); } )
                         .attr("y", function (d) { return y(6); } )
                         .style("text-anchor", "middle")
@@ -382,7 +382,7 @@
                         .style("font-size", "15px")
                         .style("fill", "lightgrey");
 
-                    SVG.append("text")     
+                    SVG.append("text")
                         .attr("x", function (d) { return x(4); } )
                         .attr("y", function (d) { return y(2); } )
                         .style("text-anchor", "middle")
@@ -391,7 +391,7 @@
                         .style("font-size", "15px")
                         .style("fill", "lightgrey");
 
-                    SVG.append("text")     
+                    SVG.append("text")
                         .attr("x", function (d) { return x(8); } )
                         .attr("y", function (d) { return y(2); } )
                         .style("text-anchor", "middle")
@@ -400,7 +400,7 @@
                         .style("font-size", "15px")
                         .style("fill", "lightgrey");
 
-                    SVG.append("text")     
+                    SVG.append("text")
                         .attr("x", function (d) { return x(6.5); } )
                         .attr("y", function (d) { return y(1.25); } )
                         .style("text-anchor", "middle")
@@ -409,7 +409,7 @@
                         .style("font-size", "13px")
                         .style("fill", "lightgrey");
 
-                    SVG.append("text")     
+                    SVG.append("text")
                         .attr("x", function (d) { return x(7.5); } )
                         .attr("y", function (d) { return y(.75); } )
                         .style("text-anchor", "middle")
@@ -418,7 +418,7 @@
                         .style("font-size", "13px")
                         .style("fill", "lightgrey");
 
-                    SVG.append("text")     
+                    SVG.append("text")
                         .attr("x", function (d) { return x(8.75); } )
                         .attr("y", function (d) { return y(0.25); } )
                         .style("text-anchor", "middle")
@@ -428,7 +428,7 @@
                         .style("fill", "lightgrey");
 
                     // Axis labels
-                    SVG.append("text")     
+                    SVG.append("text")
                         .attr("x", function (d) { return x(-4.5); } )
                         .attr("y", function (d) { return y(10.6); } )
                         .style("text-anchor", "middle")
@@ -437,10 +437,10 @@
                         .style("font-size", "15px")
                         .style("fill", "grey")
                         .attr("transform", function(d) {
-                                return "rotate(-90)" 
+                                return "rotate(-90)"
                         });
 
-                    SVG.append("text")     
+                    SVG.append("text")
                         .attr("x", function (d) { return x(5); } )
                         .attr("y", function (d) { return y(-0.8); } )
                         .style("text-anchor", "middle")
@@ -493,7 +493,7 @@
                         var oppScoreData = calculateOppScores(newData);
                         if (d3.select("svg")) d3.select("svg").remove();
                         asTable(oppScoreData);
-                        refresh(oppScoreData);   
+                        refresh(oppScoreData);
                     } else {
                         status.textContent = "Data missing or wrong format. Columns should be [outcome, importance, satisfaction]";
                     }
@@ -601,7 +601,7 @@
                             //parsePastedData(event.target.result);
                         });
                         reader.readAsText(file,"UTF-8");
-                    }); 
+                    });
                 }
 
                 function parseFileData(data) {
@@ -632,7 +632,7 @@
                             incompleteRows++;
                         } else {
                             newDisplayData += data[i].outcome + "\t" + data[i].importance + "\t" + data[i].satisfaction + "\n";
-                        }   
+                        }
                     }
                     document.querySelector("#input-data").value = newDisplayData;
                     outputLog(initialDataLength + " input rows.");
@@ -696,7 +696,7 @@
                                 } else {
                                     outputLog("Row "+i+" removed: " + row);
                                     garbageRows++;
-                                } 
+                                }
                             }
                         }
                     }
@@ -804,9 +804,9 @@
                             for(var j=0; j<numCols; j++) {
                                 if(outcomes[j] ==currentOutcome) {
                                     dp.outcome = outcomes[j];
-                                    if(impsats[j] == "importance")
+                                    if(impsats[j].toLowerCase() == "importance")
                                         dp.importance = scores[j];
-                                    else
+                                    if(impsats[j].toLowerCase() == "satisfaction")
                                         dp.satisfaction = scores[j];
                                 }
                             }
@@ -815,7 +815,7 @@
                             outputArray.push(row);
                         }
                     }
-                    var output = outputArray.join("\n");                 
+                    var output = outputArray.join("\n");
                     return output;
                 }
 
